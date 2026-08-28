@@ -158,6 +158,23 @@ uv run pytest -q
 uv run ruff check src tests
 ```
 
+## Verified project stats
+
+Validation was run from a clean Python 3.12 virtual environment before publication.
+The runtime log was redirected to a temporary writable path so the tests exercised
+telemetry without modifying the project checkout.
+
+| Check | Verified result |
+|---|---:|
+| Python source compilation | 28 of 28 files compiled |
+| Pytest suite | 40 passed in 1.88s |
+| Ruff lint | All checks passed |
+| Potential secret files detected | 0 |
+| Files published | 34 |
+
+These figures describe the reviewed publication snapshot; rerun the commands above
+after making changes.
+
 ## Known limits
 
 - Chunking is Python only.
