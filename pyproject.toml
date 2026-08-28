@@ -1,0 +1,42 @@
+[project]
+name = "codeforge"
+version = "0.1.0"
+description = "Repository-grounded multi-agent coding workflow with hybrid retrieval, deterministic validation, and human approval for remote writes."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.0,<2",
+    "langchain>=0.3,<2",
+    "langchain-anthropic>=0.3,<2",
+    "langchain-google-genai>=2,<5",
+    "langchain-mcp-adapters>=0.1,<1",
+    "langchain-openai>=0.3,<2",
+    "langgraph>=0.2.6,<2",
+    "mcp>=1.2,<2",
+    "numpy>=1.26,<3",
+    "python-dotenv>=1,<2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "pytest-asyncio>=0.24,<2",
+    "ruff>=0.6,<1",
+    "langgraph-cli[inmem]>=0.4,<1",
+]
+
+[build-system]
+requires = ["setuptools>=73.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["codeforge*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+lint.select = ["E", "F", "I", "UP"]
+lint.ignore = ["E501"]
